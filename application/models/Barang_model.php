@@ -9,7 +9,8 @@ class Barang_model extends CI_Model
 		$this->load->database();
 	}
 
-	public function get_barang($slug = FALSE, $limit = FALSE, $offset = FALSE){
+	public function get_barang($slug = FALSE, $limit = FALSE, $offset = FALSE)
+	{
 		if($limit){
 				$this->db->limit($limit, $offset);
 		}
@@ -19,10 +20,27 @@ class Barang_model extends CI_Model
 				// $this->db->join('kategori', 'kategori.id = barang.kategori_id');
 				$query = $this->db->get('barang');
 				return $query->result_array();
-			}
+		}
 
-			$query = $this->db->get_where('barang', array('slug' => $slug));
-			return $query->row_array();
+		$query = $this->db->get_where('barang', array('slug' => $slug));
+		return $query->row_array();
+	}
+
+	public function add_barang($foto)
+	{
+		$slug = url_title($this->input->post('nama'));
+
+		$data = array(
+						'user_id' => 1,
+						'nama' => $this->input->post('nama'),
+						'foto' => $foto,
+						'stok' => $this->input->post('stok'),
+						'slug' => $slug
+		);
+
+		return $this->db->insert('barang', $data);
+
+
 	}
 
 } ?>
