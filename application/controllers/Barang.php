@@ -29,6 +29,7 @@ class Barang extends CI_Controller
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('stok', 'Stok', 'required');
+		$this->form_validation->set_rules('harga', 'Harga', 'required');
 
 		if($this->form_validation->run() === FALSE){
 			$this->load->view('templates/header');
@@ -36,7 +37,7 @@ class Barang extends CI_Controller
 			$this->load->view('templates/footer');
 		} else {
 
-			$config['upload_path'] = './assets/images/posts';
+			$config['upload_path'] = './assets/img/barang';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = '2048';
 			$config['max_width'] = '2000';
@@ -56,5 +57,23 @@ class Barang extends CI_Controller
 
 			redirect('barang');
 		}
+	}
+
+	public function delete($id){
+		$this->barang_model->delete_barang($id);
+
+		$this->session->set_flashdata('barang_deleted', 'Barang Telah Dihapus');
+		redirect('barang');
+		
+	}
+
+	public function edit($id){
+		$data['title'] = 'Edit Barang';
+
+		$data['barang'] = $this->barang_model->get_barang();
+
+		$this->load->view('templates/header');
+		$this->load->view('barang/add', $data);
+		$this->load->view('templates/footer');
 	}
 } ?>

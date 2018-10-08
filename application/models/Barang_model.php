@@ -35,12 +35,19 @@ class Barang_model extends CI_Model
 						'nama' => $this->input->post('nama'),
 						'foto' => $foto,
 						'stok' => $this->input->post('stok'),
+						'harga' => $this->input->post('harga'),
 						'slug' => $slug
 		);
 
 		return $this->db->insert('barang', $data);
 
 
+	}
+
+	public function delete_barang($id){
+		$this->db->where('id', $id);
+		$this->db->delete('barang');
+		return true;
 	}
 
 } ?>
