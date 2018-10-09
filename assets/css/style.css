@@ -1,0 +1,11 @@
+strong{
+	padding: 7px 5px;
+}
+
+.baris{
+	cursor: pointer;
+}
+
+.baris:hover{
+	background: #cccccc;
+}

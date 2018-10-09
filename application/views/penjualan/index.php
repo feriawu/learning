@@ -1,6 +1,6 @@
 <?php $no=1; ?>
 <div class="row text-center text-md-left">
-	<div class="col-12">
+	<div class="col-8">
 		<h1><?= $title ?></h1>
 		<hr>
 
@@ -14,10 +14,10 @@
 					<?php endfor; ?>
 				</select>
 
-				<a class="btn btn-primary mb-3 float-right" href="<?php echo base_url() ?>barang/add">+ Add</a>
+				<a class="btn btn-primary mb-3 float-right" href="<?php echo base_url(); ?>barang/add">+ Add</a>
                   
                 <div class="table-responsive">
-                	<table class="table">
+                	<table collapse="collapse" class="table">
                       <thead>
                         <tr>
                           <th>No</th>
@@ -30,7 +30,7 @@
                       </thead>
                       <tbody>
                       <?php foreach ($barang as $brg): ?>
-						<tr>
+						<tr class="baris">
 						  <th scope="row"><?php echo $no; ?></th>
 						  <td><img width="100px" class=" mr-0" src="<?php echo base_url('assets/img/barang/').$brg['foto']; ?>"></td>
 						  <td><?php echo $brg['nama']; ?></td>
@@ -43,7 +43,7 @@
 						  	<a class="btn btn-danger" href="<?php echo base_url('barang/delete/').$brg['id']; ?>">
 						  		<img width="20px" src="<?php echo base_url('assets/img/delete.png'); ?>">
 						  	</a>
-						  </td>
+						  </td>							
 						</tr>
 						<?php $no++; ?>
 					   <?php endforeach; ?>
@@ -56,5 +56,9 @@
             </div>
 
         </div>
+    </div>
+
+    <div class="col-4">
+    	ini konten
     </div>
 </div>

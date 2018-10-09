@@ -10,7 +10,7 @@ class Barang extends CI_Controller
 		$config['total_rows'] = $this->db->count_all('barang');
 		$config['per_page'] = 10;
 		$config['uri_segment'] = 3;
-		$config['attributes'] = array('class' => 'pagination-link');
+		$config['attributes'] = array('class' => 'page-link');
 
 		// Init Pagination
 		$this->pagination->initialize($config);

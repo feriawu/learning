@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>vendor/font-awesome/css/font-awesome.min.css">
     <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>css/fontastic.css">
+    <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>css/style.css">
     <!-- Google fonts - Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <!-- jQuery Circle-->
@@ -40,15 +41,29 @@
             <h2 class="h5">Nathan Andrews</h2><span>Web Developer</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo">
+            <a href="index.html" class="brand-small text-center"> 
+              <strong>B</strong>
+              <strong class="text-primary">D</strong>
+            </a>
+          </div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Main</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="index.html"> <i class="icon-home"></i>Home                             </a></li>
-            <li><a href="<?php echo base_url(); ?>barang"> <i class="icon-form"></i>Master Barang                             </a></li>
-            <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts                             </a></li>
+            <li>
+              <a href="index.html"> <i class="icon-home"></i>Home</a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>barang"> <i class="icon-form"></i>Master Barang</a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>penjualan"> <i class="fa fa-bar-chart"></i>Penjualan                             </a>
+            </li>
+            <li>
+              <a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts                             </a>
+            </li>
           </ul>
         </div>
       </div>
