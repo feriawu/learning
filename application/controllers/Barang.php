@@ -23,20 +23,7 @@ class Barang extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function add(){
-		$data['title'] = 'Add Barang';
-
-		$this->form_validation->set_rules('nama', 'Nama', 'required');
-		$this->form_validation->set_rules('nama', 'Nama', 'required');
-		$this->form_validation->set_rules('stok', 'Stok', 'required');
-		$this->form_validation->set_rules('harga', 'Harga', 'required');
-
-		if($this->form_validation->run() === FALSE){
-			$this->load->view('templates/header');
-			$this->load->view('barang/add', $data);
-			$this->load->view('templates/footer');
-		} else {
-
+	private function images_upload(){
 			$config['upload_path'] = './assets/img/barang';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = '2048';
@@ -52,6 +39,23 @@ class Barang extends CI_Controller
 				$data = array('upload_data' => $this->upload->data());
 				$foto = $_FILES['userfile']['name'];
 			}
+	}
+
+	public function add(){
+		$data['title'] = 'Add Barang';
+
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('stok', 'Stok', 'required');
+		$this->form_validation->set_rules('harga', 'Harga', 'required');
+
+		if($this->form_validation->run() === FALSE){
+			$this->load->view('templates/header');
+			$this->load->view('barang/add', $data);
+			$this->load->view('templates/footer');
+		} else {
+
+			$this->images_upload();
 
 			$this->barang_model->add_barang($foto);
 
@@ -59,7 +63,7 @@ class Barang extends CI_Controller
 		}
 	}
 
-	public function delete($id){
+	public function delete($id = NULL){
 		$this->barang_model->delete_barang($id);
 
 		$this->session->set_flashdata('barang_deleted', 'Barang Telah Dihapus');
@@ -67,13 +71,19 @@ class Barang extends CI_Controller
 		
 	}
 
-	public function edit($id){
+	public function edit($slug = NULL){
 		$data['title'] = 'Edit Barang';
 
-		$data['barang'] = $this->barang_model->get_barang();
+		$data['barang'] = $this->barang_model->get_barang($slug);
 
 		$this->load->view('templates/header');
-		$this->load->view('barang/add', $data);
+		$this->load->view('barang/edit', $data);
 		$this->load->view('templates/footer');
+	}
+
+	public function update($slug = NULL)
+	{
+		$this->barang_model->update_barang();
+		redirect('barang');
 	}
 } ?>

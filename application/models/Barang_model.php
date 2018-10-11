@@ -50,4 +50,8 @@ class Barang_model extends CI_Model
 		return true;
 	}
 
+	public function update_barang($slug){
+
+	}
+
 } ?>

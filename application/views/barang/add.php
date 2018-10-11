@@ -17,19 +17,19 @@
                   <?php echo form_open_multipart('barang/add'); ?>
                     <div class="form-group">
                       <label>Nama</label>
-                      <input name="nama" type="text" placeholder="Nama Barang" class="form-control" value="<?php echo $barang['nama']; ?>">
+                      <input name="nama" type="text" placeholder="Nama Barang" class="form-control">
                     </div>
                     <div class="form-group">       
                       <label>Stok</label>
-                      <input name="stok" type="number" placeholder="Stok Barang" class="form-control" value="<?php echo $barang['stok']; ?>">
+                      <input name="stok" type="number" placeholder="Stok Barang" class="form-control">
                     </div>
                     <div class="form-group">       
                       <label>Harga</label>
-                      <input name="harga" type="number" placeholder="Harga" class="form-control" value="<?php echo $barang['harga']; ?>">
+                      <input name="harga" type="number" placeholder="Harga" class="form-control">
                     </div>
                     <div class="form-group">
                       <label class="d-block">Upload Image</label>       
-                      <input type="file" name="userfile" value="<?php echo $barang['foto']; ?>">
+                      <input type="file" name="userfile">
                     </div>
                     <div class="form-group">       
                       <input type="submit" value="Submit" class="btn btn-primary float-right">

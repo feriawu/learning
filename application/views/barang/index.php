@@ -37,7 +37,7 @@
 						  <td><?php echo $brg['stok']; ?></td>
 						  <td><?php echo $brg['harga']; ?></td>
 						  <td class="text-center">
-						  	<a class="btn btn-info" href="<?php echo base_url('barang/edit/').$brg['id']; ?>">
+						  	<a class="btn btn-info" href="<?php echo base_url('barang/edit/').$brg['slug']; ?>">
 						  		<img width="20px" src="<?php echo base_url('assets/img/edit.png'); ?>">
 						  	</a>
 						  	<a class="btn btn-danger" href="<?php echo base_url('barang/delete/').$brg['id']; ?>">
