@@ -50,8 +50,21 @@ class Barang_model extends CI_Model
 		return true;
 	}
 
-	public function update_barang($slug){
+	public function update_barang(){
+		
+		$slug = url_title($this->input->post('nama'));
 
+		$data = array(
+						'user_id' => 1,
+						'nama' => $this->input->post('nama'),
+						'stok' => $this->input->post('stok'),
+						'harga' => $this->input->post('harga'),
+						'slug' => $slug
+		);
+
+		$this->db->where('id', $this->input->post('id'));
+		$this->db->update('barang', $data);
 	}
+
 
 } ?>

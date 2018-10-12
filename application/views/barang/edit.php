@@ -16,7 +16,8 @@
                   
                   <?php echo form_open_multipart('barang/update'); ?>
                     <div class="form-group">
-                      <input type="hidden" name="slug" value="<?php echo $barang['slug'] ?>">
+
+                      <input type="hidden" name="id" value="<?php echo $barang['id'] ?>">
                       <label>Nama</label>
                       <input name="nama" type="text" placeholder="Nama Barang" class="form-control" value="<?php echo $barang['nama'] ?>">
                     </div>

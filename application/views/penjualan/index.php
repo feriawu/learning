@@ -1,10 +1,14 @@
 <?php $no=1; ?>
 <div class="row text-center text-md-left">
-	<div class="col-8">
+		
+	<div class="col-12">
 		<h1><?= $title ?></h1>
 		<hr>
+	</div>
 
-		<div class="card">
+	<div class="col-8">
+
+		<div class="card h-100">
 
 			<div class="card-body">
 				<h5 class="float-left mr-2">Show Per page :</h5>
@@ -13,8 +17,6 @@
 						<?php echo "<option value='$i'>$i</option>"; ?>
 					<?php endfor; ?>
 				</select>
-
-				<a class="btn btn-primary mb-3 float-right" href="<?php echo base_url(); ?>barang/add">+ Add</a>
                   
                 <div class="table-responsive">
                 	<table collapse="collapse" class="table">
@@ -59,6 +61,16 @@
     </div>
 
     <div class="col-4">
-    	ini konten
+    	<div class="card h-100">
+    		<div class="card-body">
+    			<h5 class="card-title">List Order</h5>
+    			<hr>
+    			<div class="list-order">
+    				
+    			</div>
+    			<hr>
+    			<h5>Subtotal:</h5>
+    		</div>
+    	</div>
     </div>
 </div>
