@@ -27,50 +27,71 @@
                           <th>Nama</th>
                           <th>Stok</th>
                           <th>Harga</th>
-                          <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                       <?php foreach ($barang as $brg): ?>
-						<tr class="baris">
+						<tr class="baris" id="<?php echo $brg['id'] ?>">
 						  <th scope="row"><?php echo $no; ?></th>
-						  <td><img width="100px" class=" mr-0" src="<?php echo base_url('assets/img/barang/').$brg['foto']; ?>"></td>
-						  <td><?php echo $brg['nama']; ?></td>
+						  <td>
+                <img width="100px" class=" mr-0" src="<?php echo base_url('assets/img/barang/').$brg['foto']; ?>">
+              </td>
+						  <td class="nama_<?php echo $brg['id'] ?>"><?php echo $brg['nama']; ?></td>
 						  <td><?php echo $brg['stok']; ?></td>
-						  <td><?php echo $brg['harga']; ?></td>
-						  <td class="text-center">
-						  	<a class="btn btn-info" href="<?php echo base_url('barang/edit/').$brg['id']; ?>">
-						  		<img width="20px" src="<?php echo base_url('assets/img/edit.png'); ?>">
-						  	</a>
-						  	<a class="btn btn-danger" href="<?php echo base_url('barang/delete/').$brg['id']; ?>">
-						  		<img width="20px" src="<?php echo base_url('assets/img/delete.png'); ?>">
-						  	</a>
-						  </td>							
+              <input value="<?php echo $brg['harga']; ?>" type="hidden" name="harga" class="harga_<?php echo $brg['id']; ?>">						  
+              <td><?php echo $brg['harga']; ?></td>						
 						</tr>
+
 						<?php $no++; ?>
 					   <?php endforeach; ?>
-                      </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="pagination mb-3 ml-3">          		
-            	<?php echo $this->pagination->create_links('class'); ?>      	
-            </div>
-
+            </tbody>
+          </table>
         </div>
     </div>
+
+    <div class="pagination mb-3 ml-3">          		
+    	<?php echo $this->pagination->create_links('class'); ?>      	
+    </div>
+
+  </div>
+</div>
 
     <div class="col-4">
     	<div class="card h-100">
     		<div class="card-body">
     			<h5 class="card-title">List Order</h5>
     			<hr>
-    			<div class="list-order">
-    				
-    			</div>
+          <?php echo form_open('penjualan/order'); ?>
+            <ul class="list-order">
+              <input type="hidden" name="barang_id" value="">
+          
+            </ul>
+          <?php echo  form_close(); ?>
     			<hr>
-    			<h5>Subtotal:</h5>
+          <h5 class="float-left">Rp,</h5>
+    			<h5 class="total">0</h5>
     		</div>
     	</div>
     </div>
+
 </div>
+
+
+
+
+<script type="text/javascript">
+      $(document).ready(function(){
+        $('.baris').click(function(){
+          var id = $(this).attr('id');
+          var harga = $('.harga_'+id).val();
+          var total = $('.total').text();
+          var total = parseInt(harga)+parseInt(total);
+            if (id) {
+              $('.list-order').append('<li width="100%" class="'+id+'">'+$('.nama_'+id).text()+'</li>qty: <input type="number" name="qty" value=1><hr>');
+              $('.total').html(total);
+            }
+          $('tr.baris').removeAttr('id', id);
+        });
+
+      });
+    </script>

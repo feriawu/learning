@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <!-- jQuery Circle-->
     <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>css/grasp_mobile_progress_circle-1.0.0.min.css">
+    <script src="<?php echo base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
     <!-- Custom Scrollbar-->
     <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
     <!-- theme stylesheet-->
@@ -53,7 +54,7 @@
           <h5 class="sidenav-heading">Main</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li>
-              <a href="index.html"> <i class="icon-home"></i>Home</a>
+              <a href="<?php echo base_url(); ?>"> <i class="icon-home"></i>Home</a>
             </li>
             <li>
               <a href="<?php echo base_url(); ?>barang"> <i class="icon-form"></i>Master Barang</a>
@@ -62,7 +63,7 @@
               <a href="<?php echo base_url(); ?>penjualan"> <i class="fa fa-bar-chart"></i>Penjualan                             </a>
             </li>
             <li>
-              <a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts                             </a>
+              <a href="<?php echo base_url(); ?>"> <i class="fa fa-bar-chart"></i>Charts                             </a>
             </li>
           </ul>
         </div>

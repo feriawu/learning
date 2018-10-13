@@ -10,7 +10,6 @@
       </footer>
     </div>
     <!-- JavaScript files-->
-    <script src="<?php echo base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/'); ?>vendor/popper.js/umd/popper.min.js"> </script>
     <script src="<?php echo base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url('assets/'); ?>js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
